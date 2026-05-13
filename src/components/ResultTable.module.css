@@ -1,0 +1,97 @@
+.wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Group header */
+.groupRow th {
+  padding: 7px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.groupA {
+  background: #1a1d26;
+  color: var(--text-secondary);
+  border-right: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.groupB {
+  background: rgba(59,130,246,0.1);
+  color: #60a5fa;
+  border-bottom: 1px solid var(--col-st-border);
+}
+
+/* Column headers */
+.colRow { background: #13151c; }
+
+.th {
+  padding: 8px 12px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+.thST {
+  color: #60a5fa;
+  background: rgba(59,130,246,0.06);
+  border-bottom: 1px solid var(--col-st-border);
+}
+
+.emptyTh {
+  min-width: 60px;
+  background: #0f1117;
+}
+
+/* Separator between groups */
+.sepCol {
+  border-right: 2px solid var(--border);
+}
+
+/* Data rows */
+.row:hover .td { background: var(--bg-hover); }
+.row:hover .tdST { background: rgba(59,130,246,0.1); }
+
+.td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  transition: background 0.1s;
+}
+
+.tdST {
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(59,130,246,0.1);
+  color: #93c5fd;
+  background: var(--col-st-bg);
+  transition: background 0.1s;
+}
+
+.emptyTd {
+  background: #0d0f14;
+  min-width: 60px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
