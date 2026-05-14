@@ -42,7 +42,7 @@ export function ResultTable({ rows }) {
                 >
                   {c.empty
                     ? ""
-                    : c.key === "chave" || c.key === "cnpjForn"
+                    : c.key === "chave"
                       ? `'${r[c.key] !== undefined ? r[c.key] : ""}`
                       : r[c.key] !== undefined
                         ? r[c.key]

@@ -28,6 +28,13 @@ export function fmtPct(val) {
     : n.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
 }
 
+export function fmtCNPJ(val) {
+  if (!val) return "";
+  const clean = String(val).replace(/\D/g, "");
+  if (clean.length !== 14) return val;
+  return `${clean.substring(0, 2)}.${clean.substring(2, 5)}.${clean.substring(5, 8)}/${clean.substring(8, 12)}-${clean.substring(12, 14)}`;
+}
+
 export function parseXml(text) {
   const doc = new DOMParser().parseFromString(text, "application/xml");
   if (doc.querySelector("parsererror")) throw new Error("XML inválido ou malformado.");
@@ -48,7 +55,7 @@ export function extractItems(xmlDoc, itemNums) {
   const nNF = getTag(ide, "nNF");
   const serie = getTag(ide, "serie");
   const mod = getTag(ide, "mod");
-  const cnpjForn = getTag(emit, "CNPJ");
+  const cnpjForn = fmtCNPJ(getTag(emit, "CNPJ"));
 
   const dets = Array.from(
     xmlDoc.querySelectorAll("det").length

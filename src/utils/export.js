@@ -31,8 +31,8 @@ export function exportXLS(data) {
     parts.push("<Row>");
     allCols.forEach((c) => {
       let val = c.empty ? "" : r[c.key] !== undefined ? String(r[c.key]) : "";
-      // Prefix with apostrophe to force text format for CHAVE and CNPJ
-      if ((c.key === "chave" || c.key === "cnpjForn") && val) {
+      // Prefix with apostrophe to force text format for CHAVE only
+      if (c.key === "chave" && val) {
         val = "'" + val;
       }
       parts.push(`<Cell><Data ss:Type="String">${escXml(val)}</Data></Cell>`);
