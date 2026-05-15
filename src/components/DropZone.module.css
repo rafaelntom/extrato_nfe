@@ -55,6 +55,7 @@
   font-weight: 500;
   color: var(--green);
   font-family: var(--font-mono);
+  word-break: break-all;
 }
 
 .change {

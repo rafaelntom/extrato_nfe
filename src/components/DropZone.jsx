@@ -1,28 +1,35 @@
-import { useRef, useState } from 'react'
-import { FileText, Upload } from 'lucide-react'
-import styles from './DropZone.module.css'
+import { useRef, useState } from "react";
+import { FileText, Upload } from "lucide-react";
+import styles from "./DropZone.module.css";
 
 export function DropZone({ fileName, onFile }) {
-  const inputRef = useRef(null)
-  const [dragging, setDragging] = useState(false)
+  const inputRef = useRef(null);
+  const [dragging, setDragging] = useState(false);
 
   const handleFile = (file) => {
-    if (file && file.name.endsWith('.xml')) onFile(file)
-  }
+    if (file && file.name.endsWith(".xml")) onFile(file);
+  };
 
   return (
     <div
-      className={`${styles.zone} ${dragging ? styles.dragging : ''} ${fileName ? styles.loaded : ''}`}
+      className={`${styles.zone} ${dragging ? styles.dragging : ""} ${fileName ? styles.loaded : ""}`}
       onClick={() => inputRef.current.click()}
-      onDragOver={(e) => { e.preventDefault(); setDragging(true) }}
+      onDragOver={(e) => {
+        e.preventDefault();
+        setDragging(true);
+      }}
       onDragLeave={() => setDragging(false)}
-      onDrop={(e) => { e.preventDefault(); setDragging(false); handleFile(e.dataTransfer.files[0]) }}
+      onDrop={(e) => {
+        e.preventDefault();
+        setDragging(false);
+        handleFile(e.dataTransfer.files[0]);
+      }}
     >
       <input
         ref={inputRef}
         type="file"
         accept=".xml"
-        style={{ display: 'none' }}
+        style={{ display: "none" }}
         onChange={(e) => handleFile(e.target.files[0])}
       />
 
@@ -40,5 +47,5 @@ export function DropZone({ fileName, onFile }) {
         </>
       )}
     </div>
-  )
+  );
 }
